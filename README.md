@@ -41,16 +41,9 @@ Open Cursor Settings > MCP. The **redmine** server should appear as connected. A
 | `issueId` | integer | yes | — | Redmine issue ID |
 | `includeImages` | boolean | no | `true` | Download and embed image attachments |
 
-## How the MCP server is started (same idea as Playwright)
+## How the MCP server is started
 
-Marketplace-oriented plugins should not depend on where the plugin folder lives on disk. This repo follows the same pattern as **`npx @playwright/mcp@latest`**:
-
-| | Playwright | This plugin |
-|---|---|---|
-| Command | `npx` | `npx` |
-| Package | `@playwright/mcp@latest` | `redmine-cursor-mcp@0.1.0` (pinned in [`mcp.json`](mcp.json)) |
-
-Cursor runs `npx -y redmine-cursor-mcp@<version>`, which downloads (or uses cache) the **npm package** `redmine-cursor-mcp` and executes its `bin`. The plugin install path (`~/.cursor/plugins/local/…`, marketplace cache, etc.) **does not matter** for MCP.
+The plugin runs the server via **`npx -y redmine-cursor-mcp@<version>`** (version pinned in [`mcp.json`](mcp.json)). That pulls the **npm package** `redmine-cursor-mcp` and runs its `bin`, so the plugin folder path on disk (`~/.cursor/plugins/local/…`, marketplace cache, etc.) **does not affect** MCP.
 
 **Requirement:** the package must be **published to npm** at the version referenced in `mcp.json`. Until you publish, end users will not get a working MCP from the plugin alone.
 
