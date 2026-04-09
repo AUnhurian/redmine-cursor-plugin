@@ -1,0 +1,41 @@
+{
+  "name": "redmine-cursor-mcp",
+  "version": "0.1.0",
+  "description": "MCP server for Redmine (issues, comments, attachments). Used by the Redmine Cursor plugin.",
+  "type": "module",
+  "bin": {
+    "redmine-cursor-mcp": "./dist/index.mjs"
+  },
+  "files": [
+    "dist/index.mjs"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "keywords": [
+    "mcp",
+    "redmine",
+    "cursor",
+    "model-context-protocol"
+  ],
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "prepublishOnly": "node ../scripts/check-mcp-version.mjs && npm run typecheck && npm run build",
+    "dev": "tsx src/index.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.1",
+    "zod": "^3.24.4"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.2",
+    "esbuild": "^0.25.2",
+    "tsx": "^4.19.4",
+    "typescript": "^5.8.3"
+  }
+}

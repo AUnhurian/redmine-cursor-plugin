@@ -1,0 +1,13 @@
+{
+  "name": "redmine-plugin",
+  "displayName": "Redmine",
+  "version": "0.1.0",
+  "description": "Connect Cursor to Redmine — fetch issues with full context, comments, and attachments via MCP.",
+  "author": {
+    "name": "Andrii",
+    "email": "plugins@example.com"
+  },
+  "license": "MIT",
+  "keywords": ["cursor", "plugin", "redmine", "mcp", "issues", "project-management"],
+  "logo": "assets/logo.svg"
+}
