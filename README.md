@@ -2,14 +2,18 @@
 
 Connect Cursor to your Redmine instance. Fetch issues with full context, comments, and image attachments via MCP.
 
+The plugin includes a **skill** `[skills/redmine-mcp/SKILL.md](skills/redmine-mcp/SKILL.md)` so the agent knows when and how to call the Redmine MCP tools.
+
 ## Setup
 
 The plugin requires two environment variables set on your system (not in project files).
 
-| Variable | Required | Description |
-|---|---|---|
-| `REDMINE_BASE_URL` | yes | Your Redmine instance URL, e.g. `https://redmine.example.com` |
-| `REDMINE_API_KEY` | yes | Your Redmine API key (found in My account > API access key) |
+
+| Variable           | Required | Description                                                   |
+| ------------------ | -------- | ------------------------------------------------------------- |
+| `REDMINE_BASE_URL` | yes      | Your Redmine instance URL, e.g. `https://redmine.example.com` |
+| `REDMINE_API_KEY`  | yes      | Your Redmine API key (found in My account > API access key)   |
+
 
 ### macOS / Linux
 
@@ -30,20 +34,24 @@ Open Cursor Settings > MCP. The **redmine** server should appear as connected. A
 
 ## Available tools
 
-| Tool | Description |
-|---|---|
+
+| Tool                | Description                                                                |
+| ------------------- | -------------------------------------------------------------------------- |
 | `get_redmine_issue` | Fetch a Redmine issue by ID with metadata, comments, and image attachments |
+
 
 ### Parameters
 
-| Parameter | Type | Required | Default | Description |
-|---|---|---|---|---|
-| `issueId` | integer | yes | — | Redmine issue ID |
-| `includeImages` | boolean | no | `true` | Download and embed image attachments |
+
+| Parameter       | Type    | Required | Default | Description                          |
+| --------------- | ------- | -------- | ------- | ------------------------------------ |
+| `issueId`       | integer | yes      | —       | Redmine issue ID                     |
+| `includeImages` | boolean | no       | `true`  | Download and embed image attachments |
+
 
 ## How the MCP server is started
 
-The plugin runs the server via **`npx -y redmine-cursor-mcp@<version>`** (version pinned in [`mcp.json`](mcp.json)). That pulls the **npm package** `redmine-cursor-mcp` and runs its `bin`, so the plugin folder path on disk (`~/.cursor/plugins/local/…`, marketplace cache, etc.) **does not affect** MCP.
+The plugin runs the server via `**npx -y redmine-cursor-mcp@<version>`** (version pinned in `[mcp.json](mcp.json)`). That pulls the **npm package** `redmine-cursor-mcp` and runs its `bin`, so the plugin folder path on disk (`~/.cursor/plugins/local/…`, marketplace cache, etc.) **does not affect** MCP.
 
 **Requirement:** the package must be **published to npm** at the version referenced in `mcp.json`. Until you publish, end users will not get a working MCP from the plugin alone.
 
@@ -57,7 +65,7 @@ npm run build
 npm publish
 ```
 
-`prepublishOnly` runs typecheck, build, and [`scripts/check-mcp-version.mjs`](scripts/check-mcp-version.mjs) so the version in [`mcp/package.json`](mcp/package.json) matches the pin in root [`mcp.json`](mcp.json).
+`prepublishOnly` runs typecheck, build, and `[scripts/check-mcp-version.mjs](scripts/check-mcp-version.mjs)` so the version in `[mcp/package.json](mcp/package.json)` matches the pin in root `[mcp.json](mcp.json)`.
 
 When you release a new version:
 
