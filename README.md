@@ -1,3 +1,7 @@
+[![SWUbanner](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/banner-direct-single.svg)](https://stand-with-ukraine.pp.ua/)
+
+<!-- markdownlint-disable no-inline-html -->
+
 # Redmine plugin for Cursor
 
 Connect Cursor to your Redmine instance. Fetch issues with full context, comments, and image attachments via MCP.
