@@ -2,11 +2,15 @@
 
 <!-- markdownlint-disable no-inline-html -->
 
+<p align="center">
+  <img src="https://raw.githubusercontent.com/AUnhurian/redmine-cursor-plugin/6875fee91e4bc93545541257aca5d2b803701872/assets/logo.svg" alt="Redmine Icon" />
+</p>
+
 # Redmine plugin for Cursor
 
 Connect Cursor to your Redmine instance. Fetch issues with full context, comments, and image attachments via MCP.
 
-The plugin includes a **skill** `[skills/redmine-mcp/SKILL.md](skills/redmine-mcp/SKILL.md)` so the agent knows when and how to call the Redmine MCP tools.
+The plugin includes a **skill** [skills/redmine-mcp/SKILL.md](skills/redmine-mcp/SKILL.md) so the agent knows when and how to call the Redmine MCP tools.
 
 ## Setup
 
@@ -55,7 +59,7 @@ Open Cursor Settings > MCP. The **redmine** server should appear as connected. A
 
 ## How the MCP server is started
 
-The plugin runs the server via `**npx -y redmine-cursor-mcp@<version>`** (version pinned in `[mcp.json](mcp.json)`). That pulls the **npm package** `redmine-cursor-mcp` and runs its `bin`, so the plugin folder path on disk (`~/.cursor/plugins/local/…`, marketplace cache, etc.) **does not affect** MCP.
+The plugin runs the server via `npx -y redmine-cursor-mcp@<version>` (version pinned in [mcp.json](mcp.json)). That pulls the **npm package** `redmine-cursor-mcp` and runs its `bin`, so the plugin folder path on disk (`~/.cursor/plugins/local/…`, marketplace cache, etc.) **does not affect** MCP.
 
 **Requirement:** the package must be **published to npm** at the version referenced in `mcp.json`. Until you publish, end users will not get a working MCP from the plugin alone.
 
